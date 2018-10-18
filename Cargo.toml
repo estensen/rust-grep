@@ -1,0 +1,9 @@
+[package]
+name = "rust"
+version = "0.0.1"
+authors = ["Håvard Anda Estensen <haavard.ae@gmail.com>"]
+
+[dependencies]
+regex = "1"
+clap = {version = "2.32", features = ["yaml"]}
+
