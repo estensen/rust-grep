@@ -15,4 +15,7 @@ args:
                 short: c
                 long: count
                 help: Print count of matching lines
+        - color:
+                long: color
+                help: Mark up matching text with color
 

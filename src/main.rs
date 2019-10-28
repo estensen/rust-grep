@@ -1,13 +1,15 @@
-extern crate regex;
 #[macro_use]
 extern crate clap;
+extern crate colored;
+extern crate regex;
 
+use clap::App;
+use colored::*;
+use regex::Regex;
 use std::fs::File;
 use std::io::{BufReader, BufRead};
-use regex::Regex;
-use clap::App;
 
-fn read_lines(pattern: String, filename: String, count: bool) {
+fn read_lines(pattern: String, filename: String, count: bool, color: bool) {
     let f = File::open(filename).expect("file not found");
     let buffered = BufReader::new(f);
 
@@ -20,7 +22,12 @@ fn read_lines(pattern: String, filename: String, count: bool) {
             if count {
                 matched_lines += 1;
             } else {
-                println!("{}", &line_string);
+                if color {
+                    let colored = re.replace_all(&pattern, &pattern.red());
+                    println!("{}", &colored);
+                } else {
+                    println!("{}", &line_string);
+                }
             }
         }
     }
@@ -35,8 +42,9 @@ fn main() {
 
     let pattern = matches.value_of("pattern").unwrap().to_string();
     let filename = matches.value_of("filename").unwrap().to_string();
-    let count = matches.is_present("count"); 
+    let count = matches.is_present("count");
+    let color = matches.is_present("color");
 
-    read_lines(pattern, filename, count);
+    read_lines(pattern, filename, count, color);
 }
 
