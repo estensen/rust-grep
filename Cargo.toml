@@ -1,5 +1,5 @@
 [package]
-name = "rust"
+name = "grep"
 version = "0.0.1"
 authors = ["Håvard Anda Estensen <haavard.ae@gmail.com>"]
 

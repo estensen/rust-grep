@@ -6,7 +6,7 @@ Håvard Estensen <haavard.ae@gmail.com>
 Grep files
 
 USAGE:
-    rust [FLAGS] <pattern> <filename>
+    grep [FLAGS] <pattern> <filename>
 
 FLAGS:
     -c, --count      Print count of matching lines
