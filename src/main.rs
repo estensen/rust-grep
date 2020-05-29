@@ -16,13 +16,7 @@ fn read_lines(pattern: String, filename: String, count: bool) {
 
     for line in buffered.lines() {
         let line_string = line.expect("coutld not read line");
-        if re.is_match(&line_string) {
-            if count {
-                matched_lines += 1;
-            } else {
-                println!("{}", &line_string);
-            }
-        }
+        matched_lines += re.find_iter(&line_string).count();
     }
     if count {
         println!("{}", matched_lines);
