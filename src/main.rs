@@ -27,7 +27,7 @@ fn read_lines(pattern: String, filename: String, count: bool) {
     if count {
         println!("{}", matched_lines);
     }
-}    
+}
 
 fn main() {
     let yaml = load_yaml!("cli.yml");
@@ -35,7 +35,7 @@ fn main() {
 
     let pattern = matches.value_of("pattern").unwrap().to_string();
     let filename = matches.value_of("filename").unwrap().to_string();
-    let count = matches.is_present("count"); 
+    let count = matches.is_present("count");
 
     read_lines(pattern, filename, count);
 }
